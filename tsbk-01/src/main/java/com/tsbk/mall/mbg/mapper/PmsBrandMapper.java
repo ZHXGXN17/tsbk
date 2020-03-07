@@ -2,8 +2,9 @@ package com.tsbk.mall.mbg.mapper;
 
 import com.tsbk.mall.mbg.model.PmsBrand;
 import com.tsbk.mall.mbg.model.PmsBrandExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface PmsBrandMapper {
     int countByExample(PmsBrandExample example);

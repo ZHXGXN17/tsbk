@@ -11,45 +11,44 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * PmsBrandService实现业务层
+ * PmsBrandService实现类
  * Created by yufei.wang on 2020-03-05.
  */
 @Service
 public class PmsBrandServiceImpl implements PmsBrandService {
+
     @Autowired
-    private PmsBrandMapper brandMapper;
+    private PmsBrandMapper pmsBrandMapper;
 
     @Override
     public List<PmsBrand> listAllBrand() {
-        return brandMapper.selectByExample(new PmsBrandExample());
+        return pmsBrandMapper.selectByExample(new PmsBrandExample());
     }
 
     @Override
     public int createBrand(PmsBrand brand) {
-        return brandMapper.insertSelective(brand);
+        return pmsBrandMapper.insertSelective(brand);
     }
 
     @Override
     public int updateBrand(Long id, PmsBrand brand) {
         brand.setId(id);
-        return brandMapper.updateByPrimaryKeySelective(brand);
+        return pmsBrandMapper.updateByPrimaryKeySelective(brand);
     }
 
     @Override
     public int deleteBrand(Long id) {
-        return brandMapper.deleteByPrimaryKey(id);
+        return pmsBrandMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public List<PmsBrand> listBrand(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
-        return brandMapper.selectByExample(new PmsBrandExample());
+        return pmsBrandMapper.selectByExample(new PmsBrandExample());
     }
 
     @Override
     public PmsBrand getBrand(Long id) {
-        return brandMapper.selectByPrimaryKey(id);
+        return pmsBrandMapper.selectByPrimaryKey(id);
     }
-
-
 }
